@@ -17,14 +17,14 @@ class MovieDetailsViewController: UIViewController{
     private var imageStarView: UIImageView!
     private var genreLabel: UILabel!
     private var durationLabel: UILabel!
-    private var dateLabel:UILabel!
-    private var countryLabel:UILabel!
-    private var titleLabel:UILabel!
-    private var yearLabel:UILabel!
-    private var scoreLabel:UILabel!
-    private var userScoreLabel:UILabel!
-    private var overviewLabel:UILabel!
-    private var descriptionLabel:UILabel!
+    private var dateLabel: UILabel!
+    private var countryLabel: UILabel!
+    private var titleLabel: UILabel!
+    private var yearLabel: UILabel!
+    private var scoreLabel: UILabel!
+    private var userScoreLabel: UILabel!
+    private var overviewLabel: UILabel!
+    private var descriptionLabel: UILabel!
     private var roleLabel1: CustomRoleView!
     private var roleLabel2: CustomRoleView!
     private var roleLabel3: CustomRoleView!
@@ -47,11 +47,10 @@ class MovieDetailsViewController: UIViewController{
             addSubviews()
             addConstraints()
             styleViews()
-        }
+    }
     
     private func initialize(){
         scrollView = UIScrollView()
-        scrollView.delegate = self
         contentView = UIView()
         backgroundImage = UIImage(named: "ironman.jpeg")
         backgroundImageView = UIImageView(image: backgroundImage)
@@ -63,8 +62,10 @@ class MovieDetailsViewController: UIViewController{
         yearLabel = UILabel()
         scoreLabel = UILabel()
         userScoreLabel = UILabel()
+        
         starImage = UIImage(systemName: "star")
         imageStarView = UIImageView(image: starImage)
+        
         overviewLabel = UILabel()
         descriptionLabel = UILabel()
         roleLabel1 = CustomRoleView(name: "Don  Heck", role: "Characters")
@@ -73,12 +74,12 @@ class MovieDetailsViewController: UIViewController{
         roleLabel4 = CustomRoleView(name: "Don  Heck", role: "Screenplay")
         roleLabel5 = CustomRoleView(name: "Jack Marcum", role: "Screenplay")
         roleLabel6 = CustomRoleView(name: "Matt Holloway", role: "Screenplay")
+        
         stackView1 = UIStackView()
         stackView1.axis = .horizontal
         stackView1.alignment = .fill
         stackView1.distribution = .fillEqually
         stackView1.translatesAutoresizingMaskIntoConstraints = false
-        
         stackView1.addArrangedSubview(roleLabel1)
         stackView1.addArrangedSubview(roleLabel2)
         stackView1.addArrangedSubview(roleLabel3)
@@ -88,12 +89,9 @@ class MovieDetailsViewController: UIViewController{
         stackView2.alignment = .fill
         stackView2.distribution = .fillEqually
         stackView2.translatesAutoresizingMaskIntoConstraints = false
-        
         stackView2.addArrangedSubview(roleLabel4)
         stackView2.addArrangedSubview(roleLabel5)
         stackView2.addArrangedSubview(roleLabel6)
-        
-        
     }
     private func styleViews(){
         
@@ -102,48 +100,57 @@ class MovieDetailsViewController: UIViewController{
         genreLabel.text = "Action,Science Fiction,Adventure"
         genreLabel.font = .systemFont(ofSize: 12)
         genreLabel.textColor = .white
+        genreLabel.numberOfLines = 0
         
         dateLabel.text = "05/02/2008"
         dateLabel.font = .systemFont(ofSize: 12)
         dateLabel.textColor = .white
+        dateLabel.numberOfLines = 0
         
         countryLabel.text = "(US)"
         countryLabel.font = .systemFont(ofSize: 12)
         countryLabel.textColor = .white
+        countryLabel.numberOfLines = 0
         
         durationLabel.text = "2h 6m"
         durationLabel.font = .systemFont(ofSize: 12,weight: .bold)
         durationLabel.textColor = .white
+        durationLabel.numberOfLines = 0
         
         titleLabel.text = "Iron man"
         titleLabel.font = .systemFont(ofSize: 25,weight: .bold)
         titleLabel.textColor = .white
+        titleLabel.numberOfLines = 0
         
         yearLabel.text = "(2008)"
         yearLabel.font = .systemFont(ofSize: 25)
         yearLabel.textColor = .white
+        yearLabel.numberOfLines = 0
         
         scoreLabel.text = "76%"
         scoreLabel.font = .systemFont(ofSize: 12,weight: .bold)
         scoreLabel.textColor = .white
+        scoreLabel.numberOfLines = 0
         
         userScoreLabel.text = "User score"
         userScoreLabel.font = .systemFont(ofSize: 12,weight: .bold)
         userScoreLabel.textColor = .white
+        userScoreLabel.numberOfLines = 0
         
         imageStarView.layer.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.6).cgColor
-        imageStarView.layer.cornerRadius = 20
-        imageStarView.clipsToBounds = true
+        imageStarView.layer.cornerRadius = imageStarView.bounds.width / 2
+        imageStarView.clipsToBounds = false
+        imageStarView.layer.masksToBounds = false
         imageStarView.tintColor = .white
         
         overviewLabel.text = "Overview"
         overviewLabel.font = .systemFont(ofSize: 25,weight: .bold)
         overviewLabel.textColor = .black
+        overviewLabel.numberOfLines = 0
         
         descriptionLabel.text = "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil."
         descriptionLabel.font = .systemFont(ofSize: 12)
         descriptionLabel.numberOfLines = 0
-        
     }
         
     private func addSubviews() {
@@ -151,7 +158,6 @@ class MovieDetailsViewController: UIViewController{
         scrollView.addSubview(contentView)
         contentView.addSubview(backgroundImageView)
         
-        scrollView.contentSize.width = 0
         contentView.addSubview(overviewLabel)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(stackView1)
@@ -166,126 +172,82 @@ class MovieDetailsViewController: UIViewController{
         backgroundImageView.addSubview(scoreLabel)
         backgroundImageView.addSubview(userScoreLabel)
         backgroundImageView.addSubview(imageStarView)
-        
-        
     }
     
     private func addConstraints() {
-            backgroundImageView.snp.makeConstraints {
+        backgroundImageView.snp.makeConstraints {
                 $0.bottom.equalTo(contentView.snp.centerY)
                 $0.trailing.leading.equalToSuperview()
-                $0.top.equalToSuperview()
-        
-            }
+                $0.top.equalTo(contentView.safeAreaLayoutGuide)
+        }
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            
-    
         }
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalTo(view)
-    
         }
         durationLabel.snp.makeConstraints{
-            $0.width.equalTo(50)
-            $0.height.equalTo(20)
-            $0.bottom.equalTo(backgroundImageView.snp.bottom).inset(50)
-            $0.leadingMargin.equalTo(genreLabel.snp.trailing).inset(10)
+            $0.bottom.equalTo(imageStarView.snp.top).offset(-15)
+            $0.leading.equalTo(genreLabel.snp.trailing).offset(20)
         
         }
         genreLabel.snp.makeConstraints{
-            $0.width.equalTo(210)
-            $0.height.equalTo(20)
-            $0.bottom.equalTo(imageStarView.snp.top).inset(-10)
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
+            $0.bottom.equalTo(imageStarView.snp.top).offset(-15)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
         
         }
         dateLabel.snp.makeConstraints{
-            $0.width.equalTo(70)
-            $0.height.equalTo(20)
-            $0.bottom.equalTo(genreLabel.snp.top).inset(-2)
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
+            $0.bottom.equalTo(genreLabel.snp.top).offset(-4)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
         
         }
         countryLabel.snp.makeConstraints{
-            $0.width.equalTo(50)
-            $0.height.equalTo(20)
-            $0.bottom.equalTo(genreLabel.snp.top).inset(-2)
-            $0.leadingMargin.equalTo(dateLabel.snp.trailing).inset(-8)
+            $0.bottom.equalTo(genreLabel.snp.top).offset(-4)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(12)
         
         }
         titleLabel.snp.makeConstraints{
-            $0.width.equalTo(110)
-            $0.height.equalTo(50)
-            $0.bottom.equalTo(dateLabel.snp.top).inset(-2)
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
-        
+            $0.bottom.equalTo(dateLabel.snp.top).offset(-8)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
         }
         yearLabel.snp.makeConstraints{
-            $0.width.equalTo(100)
-            $0.height.equalTo(50)
-            $0.bottom.equalTo(dateLabel.snp.top).inset(-2)
-            $0.leadingMargin.equalTo(titleLabel.snp.trailing).inset(-8)
-        
+            $0.bottom.equalTo(dateLabel.snp.top).offset(-5)
+            $0.leading.equalTo(titleLabel.snp.trailing).offset(12)
         }
         scoreLabel.snp.makeConstraints{
-            $0.width.equalTo(30)
-            $0.height.equalTo(10)
-            $0.bottom.equalTo(titleLabel.snp.top).inset(-2)
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
-        
+            $0.bottom.equalTo(titleLabel.snp.top).offset(-2)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
         }
         userScoreLabel.snp.makeConstraints{
-            $0.width.equalTo(100)
-            $0.height.equalTo(10)
-            $0.bottom.equalTo(titleLabel.snp.top).inset(-2)
-            $0.leadingMargin.equalTo(scoreLabel.snp.trailing).inset(-8)
-        
+            $0.bottom.equalTo(titleLabel.snp.top).offset(-2)
+            $0.leading.equalTo(scoreLabel.snp.trailing).offset(12)
         }
         imageStarView.snp.makeConstraints {
-            $0.width.equalTo(30)
-            $0.height.equalTo(30)
-            $0.bottom.equalTo(backgroundImageView.snp.bottom).inset(10)
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
-                }
-        
+            $0.bottom.equalTo(backgroundImageView.snp.bottom).inset(15)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(20)
+        }
         overviewLabel.snp.makeConstraints{
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
-            $0.trailing.equalToSuperview().offset(-30)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
+            $0.trailing.equalToSuperview().inset(30)
             $0.top.equalTo(backgroundImageView.snp.bottom).offset(20)
-        
         }
         descriptionLabel.snp.makeConstraints {
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
-            $0.trailing.equalToSuperview().offset(-30)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
+            $0.trailing.equalToSuperview().inset(30)
             $0.top.equalTo(overviewLabel.snp.bottom).offset(8)
-                }
+        }
         stackView1.snp.makeConstraints {
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
-            $0.trailing.equalToSuperview().offset(-30)
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
+            $0.trailing.equalToSuperview().inset(30)
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-                }
+        }
         stackView2.snp.makeConstraints {
-            $0.leadingMargin.equalTo(contentView.safeAreaLayoutGuide).inset(30)
-            $0.trailing.equalToSuperview().offset(-30)
-            $0.top.equalTo(stackView1.snp.bottom).offset(40)
-                }
-       
+            $0.leading.equalTo(contentView.safeAreaLayoutGuide).inset(30)
+            $0.trailing.equalToSuperview().inset(30)
+            $0.top.equalTo(stackView1.snp.bottom).offset(20)
+//            $0.bottom.lessThanOrEqualTo(contentView.snp.bottom)
+//            $0.bottom.equalTo(contentView.snp.bottom)
+        }
     }
-}
-extension MovieDetailsViewController: UIScrollViewDelegate {
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("scrollViewDidScroll")
-    }
-
-    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        print("scrollViewDidScrollToTop")
-    }
-
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print("scrollViewDidEndDragging")
-    }
-
 }

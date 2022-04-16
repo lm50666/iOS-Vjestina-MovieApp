@@ -50,22 +50,20 @@ class CustomRoleView:UIView{
         roleLabel.text = role
         nameLabel.font = .systemFont(ofSize: 12,weight: .bold)
         roleLabel.font = .systemFont(ofSize: 12)
+        nameLabel.numberOfLines = 0
+        roleLabel.numberOfLines = 0
         nameLabel.textColor = .black
         roleLabel.textColor = .black
         
     }
     private func addConstraints(){
-        nameLabel.snp.makeConstraints {
-        $0.leading.trailing.equalToSuperview()
-            
         
+        nameLabel.snp.makeConstraints {
+            $0.leading.trailing.top.equalToSuperview()
         }
         roleLabel.snp.makeConstraints {
-        $0.leading.trailing.equalToSuperview()
-        $0.top.equalTo(nameLabel.snp.bottom)
-        
-        
-        
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(nameLabel.snp.bottom)
         }
     }
 }

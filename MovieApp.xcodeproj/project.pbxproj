@@ -13,6 +13,7 @@
 		EC00929A27F3299400D3EC3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC00929827F3299400D3EC3D /* LaunchScreen.storyboard */; };
 		EC0092A227F3386B00D3EC3D /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0092A127F3386B00D3EC3D /* MovieDetailsViewController.swift */; };
 		EC0092A727F3611800D3EC3D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC0092A627F3611800D3EC3D /* SnapKit */; };
+		EC22F3BB280B5FF00027F84F /* MovieAppData in Frameworks */ = {isa = PBXBuildFile; productRef = EC22F3BA280B5FF00027F84F /* MovieAppData */; };
 		ECDF4A0327F3CEF8004DC52A /* CustomRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF4A0227F3CEF8004DC52A /* CustomRoleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC0092A727F3611800D3EC3D /* SnapKit in Frameworks */,
+				EC22F3BB280B5FF00027F84F /* MovieAppData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +89,7 @@
 			name = MovieApp;
 			packageProductDependencies = (
 				EC0092A627F3611800D3EC3D /* SnapKit */,
+				EC22F3BA280B5FF00027F84F /* MovieAppData */,
 			);
 			productName = MovieApp;
 			productReference = EC00928A27F3299300D3EC3D /* MovieApp.app */;
@@ -118,6 +121,7 @@
 			mainGroup = EC00928127F3299300D3EC3D;
 			packageReferences = (
 				EC0092A527F3611800D3EC3D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EC22F3B9280B5FF00027F84F /* XCRemoteSwiftPackageReference "MovieAppData" */,
 			);
 			productRefGroup = EC00928B27F3299300D3EC3D /* Products */;
 			projectDirPath = "";
@@ -368,6 +372,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		EC22F3B9280B5FF00027F84F /* XCRemoteSwiftPackageReference "MovieAppData" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fiveagency/MovieAppData.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -375,6 +387,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC0092A527F3611800D3EC3D /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		EC22F3BA280B5FF00027F84F /* MovieAppData */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC22F3B9280B5FF00027F84F /* XCRemoteSwiftPackageReference "MovieAppData" */;
+			productName = MovieAppData;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
