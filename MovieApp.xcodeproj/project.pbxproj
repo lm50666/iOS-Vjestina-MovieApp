@@ -14,6 +14,11 @@
 		EC0092A227F3386B00D3EC3D /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0092A127F3386B00D3EC3D /* MovieDetailsViewController.swift */; };
 		EC0092A727F3611800D3EC3D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC0092A627F3611800D3EC3D /* SnapKit */; };
 		EC22F3BB280B5FF00027F84F /* MovieAppData in Frameworks */ = {isa = PBXBuildFile; productRef = EC22F3BA280B5FF00027F84F /* MovieAppData */; };
+		EC22F3BD280B62D00027F84F /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22F3BC280B62D00027F84F /* MovieListViewController.swift */; };
+		EC22F3BF280B68C40027F84F /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22F3BE280B68C40027F84F /* SearchBarView.swift */; };
+		EC22F3C1280B892E0027F84F /* CustomStackPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC22F3C0280B892E0027F84F /* CustomStackPart.swift */; };
+		EC52317C280D813300475D13 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC52317B280D813300475D13 /* TableViewCell.swift */; };
+		EC530284280CB12500FA0B28 /* CustomPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC530283280CB12500FA0B28 /* CustomPictureView.swift */; };
 		ECDF4A0327F3CEF8004DC52A /* CustomRoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDF4A0227F3CEF8004DC52A /* CustomRoleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +30,11 @@
 		EC00929927F3299400D3EC3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC00929B27F3299400D3EC3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC0092A127F3386B00D3EC3D /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		EC22F3BC280B62D00027F84F /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
+		EC22F3BE280B68C40027F84F /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		EC22F3C0280B892E0027F84F /* CustomStackPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackPart.swift; sourceTree = "<group>"; };
+		EC52317B280D813300475D13 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		EC530283280CB12500FA0B28 /* CustomPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPictureView.swift; sourceTree = "<group>"; };
 		ECDF4A0227F3CEF8004DC52A /* CustomRoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +77,11 @@
 				EC00929B27F3299400D3EC3D /* Info.plist */,
 				EC0092A127F3386B00D3EC3D /* MovieDetailsViewController.swift */,
 				ECDF4A0227F3CEF8004DC52A /* CustomRoleView.swift */,
+				EC22F3BC280B62D00027F84F /* MovieListViewController.swift */,
+				EC22F3BE280B68C40027F84F /* SearchBarView.swift */,
+				EC22F3C0280B892E0027F84F /* CustomStackPart.swift */,
+				EC530283280CB12500FA0B28 /* CustomPictureView.swift */,
+				EC52317B280D813300475D13 /* TableViewCell.swift */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -150,8 +165,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC00928E27F3299300D3EC3D /* AppDelegate.swift in Sources */,
+				EC22F3BD280B62D00027F84F /* MovieListViewController.swift in Sources */,
 				EC00929027F3299300D3EC3D /* SceneDelegate.swift in Sources */,
+				EC52317C280D813300475D13 /* TableViewCell.swift in Sources */,
+				EC22F3C1280B892E0027F84F /* CustomStackPart.swift in Sources */,
+				EC530284280CB12500FA0B28 /* CustomPictureView.swift in Sources */,
 				EC0092A227F3386B00D3EC3D /* MovieDetailsViewController.swift in Sources */,
+				EC22F3BF280B68C40027F84F /* SearchBarView.swift in Sources */,
 				ECDF4A0327F3CEF8004DC52A /* CustomRoleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
